@@ -1,0 +1,26 @@
+# Get matrix sizes from the user
+print("Enter m (rows of A): ")
+m = parse(Int, readline())
+
+print("Enter n (columns of B): ")
+n = parse(Int, readline())
+
+print("Enter k (columns of A / rows of B): ")
+k = parse(Int, readline())
+
+# Generate random matrices A (m×k) and B (k×n)
+A = rand(1:10, m, k)  # Random integers from 1 to 10
+B = rand(1:10, k, n)
+
+# Multiply the matrices
+C = A * B  # Result is m×n
+
+# Print matrices
+println("\nMatrix A ($m×$k):")
+println(A)
+
+println("\nMatrix B ($k×$n):")
+println(B)
+
+println("\nMatrix C = A * B ($m×$n):")
+println(C)

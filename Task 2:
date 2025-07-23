@@ -1,1 +1,10 @@
+print("Enter size of arrays: ")
+n = parse(Int, readline())
+
+arr1 = rand(1:100, n)
+arr2 = rand(1:100, n)
+
+println("Array 1: ", arr1)
+println("Array 2: ", arr2)
+
 

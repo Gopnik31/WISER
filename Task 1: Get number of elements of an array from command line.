@@ -1,1 +1,9 @@
+if length(ARGS) == 0
+    println("Please provide array elements as command-line arguments.")
+    exit(1)
+end
+
+arr = parse.(Float64, ARGS)
+
+println("Number of elements in the array: ", length(arr))
 

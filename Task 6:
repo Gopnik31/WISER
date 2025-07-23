@@ -1,0 +1,23 @@
+@time begin
+    print("Enter m (rows of A): ")
+    m = parse(Int, readline())
+
+    print("Enter n (columns of B): ")
+    n = parse(Int, readline())
+
+    print("Enter k (columns of A / rows of B): ")
+    k = parse(Int, readline())
+
+    A = rand(1:10, m, k)
+    B = rand(1:10, k, n)
+    C = A * B
+
+    println("\nMatrix A ($m×$k):")
+    println(A)
+
+    println("\nMatrix B ($k×$n):")
+    println(B)
+
+    println("\nMatrix C = A * B ($m×$n):")
+    println(C)
+end

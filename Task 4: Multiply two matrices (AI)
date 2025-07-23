@@ -1,1 +1,29 @@
+function get_dim(prompt)
+    while true
+        print(prompt)
+        input = readline()
+        try
+            val = parse(Int, input)
+            if val > 0
+                return val
+            else
+                println("Please enter a positive integer.")
+            end
+        catch
+            println("Invalid input, please enter an integer.")
+        end
+    end
+end
 
+m = get_dim("Enter number of rows for matrix A (m): ")
+k = get_dim("Enter number of columns for matrix A / rows for matrix B (k): ")
+n = get_dim("Enter number of columns for matrix B (n): ")
+
+A = rand(Float64, m, k) * 9 .+ 1
+B = rand(Float64, k, n) * 9 .+ 1
+
+elapsed_time = @elapsed begin
+    C = A * B
+end
+
+println("Matrix multiplication took $elapsed_time seconds.")

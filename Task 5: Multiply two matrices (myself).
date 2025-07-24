@@ -9,13 +9,6 @@ k = parse(Int, readline())
 
 A = rand(1:10, m, k)
 B = rand(1:10, k, n)
-C = A * B
 
-println("Matrix A:")
-println(A)
-
-println("Matrix B:")
-println(B)
-
-println("Matrix C = A * B:")
-println(C)
+elapsed_time = @elapsed C = A * B
+println("Elapsed time for matrix multiplication: ", elapsed_time, " seconds")

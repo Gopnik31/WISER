@@ -1,0 +1,27 @@
+# Get matrix sizes from the user
+print("Enter m (rows of A): ")
+m = parse(Int, readline())
+
+print("Enter n (columns of B): ")
+n = parse(Int, readline())
+
+print("Enter k (columns of A / rows of B): ")
+k = parse(Int, readline())
+
+# Generate random float matrices A (m×k) and B (k×n), values in range [1,10)
+A = rand(Float64, m, k) * 9 .+ 1
+B = rand(Float64, k, n) * 9 .+ 1
+
+# Time the matrix multiplication only
+println("\nMultiplying matrices...")
+
+t = @elapsed begin
+    C = A * B
+end
+
+# Compute GFLOPS: 2 * m * n * k
+flops = 2 * m * n * k
+gflops = flops / (t * 1e9)
+
+println("Matrix multiplication took $t seconds.")
+println("Performance: $gflops GFLOPS")

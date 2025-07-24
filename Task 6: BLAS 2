@@ -1,1 +1,22 @@
+using LinearAlgebra
 
+println("Enter number of rows (m) for matrix A: ")
+m = parse(Int, readline())
+
+println("Enter number of columns (n) for matrix A: ")
+n = parse(Int, readline())
+
+# Generate random float matrix A (m x n) and vector x (length n)
+A = rand(1.0:0.1:10.0, m, n)
+x = rand(1.0:0.1:10.0, n)
+
+elapsed_time = @elapsed begin
+    y = A * x
+end
+
+# FLOPs for matrix-vector multiply: 2 * m * n (multiply + add per element)
+flops = 2 * m * n
+gflops = flops / (elapsed_time * 1e9)
+
+println("Elapsed time (seconds): ", elapsed_time)
+println("Performance: ", gflops, " GFLOPS")

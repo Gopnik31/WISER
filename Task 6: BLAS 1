@@ -1,1 +1,19 @@
+using LinearAlgebra  
+using BenchmarkTools
+
+println("Enter size of the vectors: ")
+n = parse(Int, readline())
+
+v1 = rand(1:100, n)
+v2 = rand(1:100, n)
+
+elapsed_time = @elapsed begin
+    dp = dot(v1, v2)
+end
+
+flops = 2 * n
+gflops = flops / (elapsed_time * 1e9)
+
+println("Elapsed time (seconds): ", elapsed_time)
+println("Performance: ", gflops, " GFLOPS")
 
